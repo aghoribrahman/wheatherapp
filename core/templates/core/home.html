@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheather App</title>
+<style>
+    *{
+        margin :0;
+        font-family:'Bitstream Vera Sans Mono', Monaco, "Courier New", Courier, monospace;
+        box-sizing: border-box;
+    }
+    #main{
+        text-align: center;
+        padding-top: 100px;
+    }
+
+    input[type='text']{
+        width: 30%;
+        padding: 10px;
+        border: 2px solid black;
+        marign-bottom: 30px;
+        margin-top: 10px;
+    }
+    input[type='submit']{
+        width: 30%;
+        padding: 10px;
+        border: 2px solid blackl;
+        background: black;
+        color: white;
+        margin-top: 10px;
+        cursor: pointer;
+        text-transform: uppercase;
+    }
+    .ex1 {
+        margin-top: 25px;
+      }
+      .icon {
+        background: url('images/hive.png') 0 0 no-repeat;
+        width: 76px;
+        height: 76px;
+        top: -200px;
+        margin: 0 auto;
+        position: relative;
+        }
+        .icon:hover {
+        -moz-animation: rotatecircle 4s infinite linear;
+        -webkit-animation: rotatecircle 4s linear;
+        }
+        .outerCircle {
+        background-color: transparent;
+        border: 8px solid rgba(97, 82, 72, 0.9);
+        opacity: .9;
+        border-right: 5px solid transparent;
+        border-left: 5px solid transparent;
+        border-radius: 100px;
+        width: 103px;
+        height: 103px;
+        margin: 0 auto;
+        -moz-animation: spinPulse 3s infinite ease-in-out;
+        -webkit-animation: spinPulse 3s infinite ease-in-out;
+        }
+        .innerCircle {
+        background-color: transparent;
+        border: 5px solid rgba(189, 215, 60, 0.6);
+        opacity: .9;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-radius: 100px;
+        top: -110px;
+        width: 92px;
+        height: 92px;
+        margin: 0 auto;
+        position: relative;
+        -moz-animation: spinoffPulse 1s infinite linear;
+        -webkit-animation: spinoffPulse 1s infinite linear;
+        
+        }
+        
+        
+        @-moz-keyframes spinPulse {
+            0% { -moz-transform:rotate(160deg); opacity:0; box-shadow:0 0 1px #bdd73c;}
+          50% { -moz-transform:rotate(145deg); opacity:1; }
+          100% { -moz-transform:rotate(-320deg); opacity:0; }
+        }
+        @-moz-keyframes spinoffPulse {
+            0% { -moz-transform:rotate(0deg); }
+          100% { -moz-transform:rotate(360deg);  }
+        }
+        @-webkit-keyframes spinPulse {
+            0% { -webkit-transform:rotate(160deg); opacity:0; box-shadow:0 0 1px #bdd73c; }
+          50% { -webkit-transform:rotate(145deg); opacity:1;}
+          100% { -webkit-transform:rotate(-320deg); opacity:0; }
+        }
+        @-webkit-keyframes spinoffPulse {
+            0% { -webkit-transform:rotate(0deg); }
+          100% { -webkit-transform:rotate(360deg); }
+        }
+        @-moz-keyframes rotatecircle {
+            0% { -moz-transform:rotate(0deg); }
+          100% { -moz-transform:rotate(-360deg); }
+        }
+        
+        @-webkit-keyframes rotatecircle {
+            0% { -webkit-transform:rotate(0deg); }
+        100% { -webkit-transform:rotate(-360deg); }
+        }
+</style>
+
+
+</head>
+<body>
+  
+    <div id='main'>
+        <h1>Find the Weather</h1>
+    <form action="" method='GET'>
+        <label for="city"></label>
+        <input type="text" name ='city' id='city' placeholder='city...'><br>
+        <input type="submit" value='submit'/>
+    </form>    
+            <div class='weather_card_info_title ex1 text-bold'>
+                <h3 calss='text-bold'>
+                
+                City - {{data.city}} <br>
+                Weather - {{data.weather}} <br>
+                Temprature - {{data.temprature}}°C<br>
+                Pressure - {{data.pressure}} <br>
+                Humidity - {{data.humidity}} <br>
+                Description - {{data.description}} <br>
+                </h3>
+            </div>
+    </div>
+    <br>
+    <br>
+    <div>
+      <div class="outerCircle"></div>
+      <div class="innerCircle"></div>
+      <div class="icon"></div>
+    </div>
+</body>
+</html>
